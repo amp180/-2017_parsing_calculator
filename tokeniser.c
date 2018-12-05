@@ -31,7 +31,7 @@ struct tokeniser_t {
 };
 
 #ifdef __MINGW32_MAJOR_VERSION
-//Crummy getline polyfill, prolly bugged AF
+//Improvised getline polyfill, probably not 100% correct
 ssize_t getline(char const **lineptr, size_t const *n, FILE const *stream){
     if((!*lineptr) && (*n==0)){
         *lineptr = malloc(120);
