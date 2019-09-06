@@ -6,7 +6,7 @@
 #include "assert.h"
 #include "math.h"
 #include "parser.h"
-
+#include "tokeniser.h"
 
 struct parser_t {
     tokeniser_t *tokeniser;
@@ -17,6 +17,7 @@ double arith_expr(parser_t * parser);
 
 
 parser_t *get_parser(tokeniser_t *const tokeniser){
+    get_next_token(tokeniser);
     parser_t *parser = malloc(sizeof(parser_t));
     parser->tokeniser = tokeniser;
 };

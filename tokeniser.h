@@ -7,24 +7,23 @@
 
 //Macro defining all recognised tokens, define INCLUDE_TOKENISER_H_MACROS to use.
 #define TOKENS(TOKEN)\
-	TOKEN(TOK_OP_PLUS, "\\+", {})\
-	TOKEN(TOK_OP_MINUS, "-",  {})\
-    TOKEN(TOK_OP_MULT, "\\*", {})\
-    TOKEN(TOK_OP_DIV, "[/\\]", {})\
-    TOKEN(TOK_OP_POW, "\\^",  {})\
-    TOKEN(TOK_LEFT_BRACKET, "(", {})\
-    TOKEN(TOK_RIGHT_BRACKET, ")", {})\
-	TOKEN(TOK_NUM, "[0-9][0-9]*", {*(int*)(value) = atoi(tokeniser->curr_token); return true;} )\
-    TOKEN(TOK_SEMIC, "[;\r\n][;\r\n]*", {})\
-    TOKEN(TOK_NOTOKEN, "$$", {})
+    TOKEN(TOK_OP_PLUS, "\\+")\
+    TOKEN(TOK_OP_MINUS, "-")\
+    TOKEN(TOK_OP_MULT, "\\*")\
+    TOKEN(TOK_OP_DIV, "[/\\]")\
+    TOKEN(TOK_OP_POW, "\\^")\
+    TOKEN(TOK_LEFT_BRACKET, "(")\
+    TOKEN(TOK_RIGHT_BRACKET, ")")\
+    TOKEN(TOK_NUM, "[0-9][0-9]*" )\
+    TOKEN(TOK_SEMIC, "[;\r\n][;\r\n]*")\
+    TOKEN(TOK_NOTOKEN, "$$")
 
 
 //Macros to extract token attributes, define INCLUDE_TOKENISER_H_MACROS to use.
-#define TOKEN_NAME_COMMA(NAME, REGEX, VALUE) NAME,
-#define TOKEN_NAME_STR_COMMA(NAME, REGEX, VALUE) #NAME,
-#define TOKEN_REGEX_COMMA(NAME, REGEX, VALUE) REGEX,
-#define TOKEN_COUNT(NAME, REGEX, VALUE) +1
-#define TOKEN_VALUE_CASE(NAME, REGEX, VALUE) { case(NAME): (VALUE); break; };
+#define TOKEN_NAME_COMMA(NAME, REGEX) NAME,
+#define TOKEN_NAME_STR_COMMA(NAME, REGEX) #NAME,
+#define TOKEN_REGEX_COMMA(NAME, REGEX) REGEX,
+#define TOKEN_COUNT(NAME, REGEX) +1
 
 
 //An enum of token types.
@@ -59,7 +58,6 @@ void free_tokeniser(tokeniser_t *tokeniser); //Frees the tokeniser context.
 #undef TOKEN_NAME_STR_COMMA
 #undef TOKEN_REGEX_COMMA
 #undef TOKEN_COUNT
-#undef TOKEN_VALUE_CASE
 #endif //INCLUDE_TOKENISER_H_MACROS
 
 

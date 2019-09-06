@@ -10,7 +10,7 @@ set(LIBS m )
 
 find_library(REGEX NAMES "regex" "libregex")
 find_library(REGEX_PCRE NAMES "libpcre-posix" "libpcreposix")
-find_library(PCRE NAMES  "libpcre2_32" "libpcre8" "libpcre16" "libpcre32" )
+find_library(PCRE NAMES  "libpcre2_32" "libpcre32" "libpcre8" "libpcre16")
 find_file(REGEX_H regex.h)
 
 if(REGEX)

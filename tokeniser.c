@@ -119,7 +119,9 @@ bool curr_token_in(const tokeniser_t *const tokeniser, const token_t *const toke
 //Gets the value of the current token.
 bool get_curr_token_value(const tokeniser_t *const tokeniser, void *const value){
     switch(tokeniser->curr_token_type) {
-        TOKENS(TOKEN_VALUE_CASE)
+        case (TOK_NUM):
+			*(int*)(value) = atoi(tokeniser->curr_token);
+            return true;
         default:
             break;
     };

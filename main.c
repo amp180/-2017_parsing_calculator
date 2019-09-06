@@ -2,17 +2,15 @@
 #include "tokeniser.h"
 #include "parser.h"
 
-
 int main(size_t argc, char **argv) {
 
     puts("This program parses and evaluate simple maths expressions.\n"
          "Supported operators: +-*\\()^\n"
          "eg. ( 2 * 2 ) / 4;\n"
-         "Ctrl-D or bank line to quit.\n"
+         "Ctrl-D or blank line to quit.\n"
     );
 
     tokeniser_t *tok = get_tokeniser(stdin);
-    get_next_token(tok);
     parser_t *par = get_parser(tok);
 
     double d;
